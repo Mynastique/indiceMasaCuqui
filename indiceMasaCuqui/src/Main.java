@@ -1,24 +1,31 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        // Declaración de las variables
         double peso;
         double altura;
         double imc;
         System.out.println("Calculadora de Índice de Masa Cuqui");
-        System.err.println("Introduce tu peso en kg:");
-        Scanner sc;
-        sc = new Scanner(System.in);
-        peso = sc.nextDouble();
-        if (peso <= 0){
-            System.err.println("Los datos no son válidos");
-        }
-
-        System.err.println("Introduce tu altura en metros (Ej:1,68):");
-        altura = sc.nextDouble();
-        if (altura <= 0){
-            System.err.println("Los datos no son válidos");
-        }
+        Scanner sc = new Scanner(System.in);
+        // Validar el peso (no menor que 0)
+        do {
+            System.err.println("Introduce tu peso en kg:");
+            peso = sc.nextDouble();
+            if (peso <= 0){
+                System.err.println("Peso no válido");
+            }
+        } while (peso <= 0); // ¿Por qué siendo "falso" pasa a la siguiente condicion?
+        // Validar la altura (no menor a 0) (sin ayuda)
+        do {
+            System.err.println("Introduce tu altura en metros (Ej:1,68):");
+            altura = sc.nextDouble();
+            if (peso <= 0) {
+                System.err.println("Altura no válida");
+            }
+        } while (altura <= 0);
+        // Calcular IMC
         imc = peso / (altura * altura);
+        // Mostrar resultado
         System.out.print("Tu Índice de Masa Cuqui es ");
         if (imc < 18.5){
             System.out.print("Bellísima");
